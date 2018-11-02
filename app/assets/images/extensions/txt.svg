@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>TXT </title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="TXT-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-13-Copy" transform="translate(10.000000, 5.000000)">
+            <g id="Group-11">
+                <polygon id="Rectangle-2" stroke="#FFA432" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" points="0 0 28 0 40 12 40 51 0 51"></polygon>
+                <text id="TXT" font-family="Nunito-Black, Nunito" font-size="12" font-weight="700" letter-spacing="0.2571429" fill="#FFA432">
+                    <tspan x="7.932653" y="30">TX</tspan>
+                    <tspan x="24.2629388" y="30" letter-spacing="0.2204082">T</tspan>
+                </text>
+                <rect id="Rectangle-8-Copy-2" stroke="#FFA432" fill-rule="nonzero" x="4.5" y="34.5" width="31" height="1" rx="0.5"></rect>
+                <rect id="Rectangle-8-Copy-3" stroke="#FFA432" fill-rule="nonzero" x="4.5" y="39.5" width="13" height="1" rx="0.5"></rect>
+                <polyline id="Rectangle-10" stroke="#FFA432" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" points="40 13 27 13 27 0"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

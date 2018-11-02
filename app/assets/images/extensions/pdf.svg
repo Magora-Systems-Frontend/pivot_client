@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>PDF </title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="PDF-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-13-Copy-4" transform="translate(10.000000, 5.000000)">
+            <g id="Group-11">
+                <polygon id="Rectangle-2" stroke="#FF6740" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" points="0 0 28 0 40 12 40 51 0 51"></polygon>
+                <rect id="Rectangle-8-Copy-2" stroke="#FF6740" fill-rule="nonzero" x="4.5" y="34.5" width="31" height="1" rx="0.5"></rect>
+                <rect id="Rectangle-8-Copy-3" stroke="#FF6740" fill-rule="nonzero" x="4.5" y="39.5" width="13" height="1" rx="0.5"></rect>
+                <text id="Pdf" font-family="Nunito-Black, Nunito" font-size="12" font-weight="700" letter-spacing="0.2571429" fill="#FF6740">
+                    <tspan x="7.44628565" y="30">PDF</tspan>
+                </text>
+                <polyline id="Rectangle-10" stroke="#FF6740" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" points="40 13 27 13 27 0"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Documents</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Documents" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-13" transform="translate(7.000000, 2.000000)" fill-rule="nonzero">
+            <g id="Group-11">
+                <polyline id="Rectangle-2" stroke="#8B8F95" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="24.2743517 51 0 51 0 0 28 0 40 12 40 33.9943601"></polyline>
+                <circle id="Oval" stroke="#8B8F95" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" cx="37.5" cy="47.5" r="9.5"></circle>
+                <rect id="Rectangle" stroke="#8B8F95" x="37" y="42.5" width="1" height="10" rx="0.5"></rect>
+                <rect id="Rectangle-Copy" stroke="#8B8F95" transform="translate(37.500000, 47.500000) rotate(90.000000) translate(-37.500000, -47.500000) " x="37" y="42.5" width="1" height="10" rx="0.5"></rect>
+                <rect id="Rectangle-3" fill="#8B8F95" x="7" y="22" width="26" height="3" rx="1.5"></rect>
+                <rect id="Rectangle-3-Copy-4" fill="#8B8F95" x="7" y="28" width="26" height="3" rx="1.5"></rect>
+                <rect id="Rectangle-3-Copy-5" fill="#8B8F95" x="7" y="34" width="16" height="3" rx="1.5"></rect>
+                <polyline id="Rectangle-10" stroke="#8B8F95" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="40 13 27 13 27 0"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

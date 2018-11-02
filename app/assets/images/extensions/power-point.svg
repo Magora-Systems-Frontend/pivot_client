@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Power point </title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Power-point-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-13-Copy-3" transform="translate(6.000000, 2.000000)">
+            <g id="Group-11">
+                <polyline id="Rectangle-2" stroke="#FF9362" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" points="21.9321207 51 0 51 0 0 28 0 40 12 40 30.8841924"></polyline>
+                <g id="Group-12" transform="translate(36.861731, 45.590236) rotate(46.000000) translate(-36.861731, -45.590236) translate(33.361731, 31.090236)" fill-rule="nonzero" stroke="#FF9362">
+                    <path d="M1,0 L6,-1.11022302e-16 C6.55228475,-2.12475365e-16 7,0.44771525 7,1 L7,24.8722377 C7,25.1263486 6.90326049,25.3709288 6.72943628,25.5562865 L3.5,29 L0.270563724,25.5562865 C0.0967395064,25.3709288 2.3855952e-16,25.1263486 1.11022302e-15,24.8722377 L-6.21724894e-15,1 C-6.53014801e-15,0.44771525 0.44771525,-2.31613845e-16 1,-3.33066907e-16 Z" id="Rectangle-13" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <rect id="Rectangle-14" x="0.5" y="5.5" width="6" height="1" rx="0.5"></rect>
+                </g>
+                <text id="Pptx" font-family="Nunito-Black, Nunito" font-size="12" font-weight="700" letter-spacing="0.2571429" fill="#FF9362">
+                    <tspan x="3.5377142" y="33">PPTX</tspan>
+                </text>
+                <polyline id="Rectangle-10" stroke="#FF9362" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" points="40 13 27 13 27 0"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

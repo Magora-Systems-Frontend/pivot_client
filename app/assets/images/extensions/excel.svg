@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Exel</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Exel" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-13-Copy-2" transform="translate(10.000000, 5.000000)">
+            <g id="Group-11">
+                <polygon id="Rectangle-2" stroke="#49A24C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" points="0 0 28 0 40 12 40 51 0 51"></polygon>
+                <text id="Xlsx" font-family="Nunito-Black, Nunito" font-size="12" font-weight="700" letter-spacing="0.2571429" fill="#49A24C">
+                    <tspan x="3.9457142" y="29">XLSX</tspan>
+                </text>
+                <rect id="Rectangle-9" stroke="#49A24C" fill-rule="nonzero" x="7.5" y="33.5" width="1" height="13" rx="0.5"></rect>
+                <rect id="Rectangle-9-Copy" stroke="#49A24C" fill-rule="nonzero" x="15.5" y="33.5" width="1" height="13" rx="0.5"></rect>
+                <rect id="Rectangle-9-Copy-2" stroke="#49A24C" fill-rule="nonzero" x="23.5" y="33.5" width="1" height="13" rx="0.5"></rect>
+                <rect id="Rectangle-9-Copy-3" stroke="#49A24C" fill-rule="nonzero" x="31.5" y="33.5" width="1" height="13" rx="0.5"></rect>
+                <rect id="Rectangle-9-Copy-4" stroke="#49A24C" fill-rule="nonzero" transform="translate(20.500000, 40.000000) rotate(-90.000000) translate(-20.500000, -40.000000) " x="20" y="28" width="1" height="24" rx="0.5"></rect>
+                <rect id="Rectangle-9-Copy-5" stroke="#49A24C" fill-rule="nonzero" transform="translate(20.000000, 34.000000) rotate(-90.000000) translate(-20.000000, -34.000000) " x="19.5" y="21.5" width="1" height="25" rx="0.5"></rect>
+                <rect id="Rectangle-9-Copy-6" stroke="#49A24C" fill-rule="nonzero" transform="translate(20.000000, 46.000000) rotate(-90.000000) translate(-20.000000, -46.000000) " x="19.5" y="33.5" width="1" height="25" rx="0.5"></rect>
+                <polyline id="Rectangle-10" stroke="#49A24C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" points="40 13 27 13 27 0"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
