@@ -1,0 +1,15 @@
+{
+  "code": "success",
+  "data": {
+    "items": [
+      {
+        "id": 1,
+        "name": "class 1"
+      },
+      {
+        "id": 2,
+        "name": "class 2"
+      }
+    ]
+  }
+}

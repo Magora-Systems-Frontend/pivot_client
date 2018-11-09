@@ -1,8 +1,24 @@
 import * as React from "react";
-import { PureComponent } from "react";
+import { Component } from "react";
+import Classes from '../Classes';
+import ClassCollections from '../ClassCollections';
 
-export default class Home extends PureComponent<{}, {}> {
+export default class Home extends Component<{}, {}> {
+
   render() {
-    return <h1>Home Page</h1>;
+    return (
+      <div>
+        <h1>Home page</h1>
+        <div className="row">
+          <div className="col-xs-12 col-md-6">
+            <Classes />
+          </div>
+          <div className="col-xs-12 col-md-6">
+            <ClassCollections />
+          </div>
+        </div>
+      </div>
+    );
   }
 }
+

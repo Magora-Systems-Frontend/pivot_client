@@ -1,16 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import { Spinner, Wrapper } from './index.styled';
 
-export default class Loader extends React.PureComponent {
-  static propTypes = {
-    children: PropTypes.any,
-    isShow: PropTypes.bool,
-  };
+interface Props {
+  children: any,
+  isShow: boolean,
+}
 
-  static defaultProps = {
-    isShow: false,
-  };
+export default class Loader extends React.PureComponent<Props, {}> {
 
   render() {
     const { isShow, children } = this.props;
