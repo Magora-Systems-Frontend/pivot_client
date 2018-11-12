@@ -10,10 +10,10 @@ export default class Home extends Component<{}, {}> {
       <div>
         <h1>Home page</h1>
         <div className="row">
-          <div className="col-xs-12 col-md-6">
+          <div className="col-xs-12 col-md-3">
             <Classes />
           </div>
-          <div className="col-xs-12 col-md-6">
+          <div className="col-xs-12 col-md-9">
             <ClassCollections />
           </div>
         </div>

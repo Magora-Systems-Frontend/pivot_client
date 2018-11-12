@@ -36,8 +36,26 @@ export function createClass(data: Object) {
       payload: {
         items: [
           ...classes.items,
-          result
+          result,
         ]
+      },
+    });
+  }
+}
+
+export function updateClass(id: number|string, data: Object) {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: actionTypes.load,
+    });
+    const result = await api.updateClass(id, data);
+    const { classes } = getState();
+    return dispatch({
+      type: actionTypes.loadSuccess,
+      payload: {
+        items: [
+          ...classes.items.map(classItem => id === classItem.id ? result : classItem),
+        ],
       },
     });
   }

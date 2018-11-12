@@ -3,8 +3,11 @@ import { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import * as autoBind from "react-autobind";
-import * as actions from "./actions";
 import Loader from "components/Loader";
+import * as modalActions from "containers/Modal/actions";
+import * as actions from "./actions";
+import FormModal from 'components/modals/FormModal';
+import ClassForm from 'components/ClassForm';
 
 export interface ClassType {
   id: number,
@@ -19,19 +22,22 @@ interface StateProps {
 interface DispatchProps {
   loadClasses: () => void,
   createClass: (Object) => void,
+  updateClass: (id: number|string, data: Object) => void,
+  showModal: (Object) => void,
 }
 
 type ClassProps = StateProps & DispatchProps
 
 const ClassItem = styled.div`
-  display: inline-block;
-  width: 200px;
-  height: 100px;
-  line-height: 100px;
+  display: block;
+  min-width: 100px;
+  height: 50px;
+  line-height: 50px;
   text-align: center;
   border: 1px solid;
   margin-right: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
 `;
 
 const Content = styled.div`
@@ -51,9 +57,27 @@ class Classes extends Component<ClassProps, {}> {
   }
 
   handleCreate() {
-    const { createClass } = this.props;
-    createClass({
-      name: 'test',
+    const { createClass, showModal } = this.props;
+    showModal({
+      Node: FormModal,
+      options: {
+        Form: ClassForm,
+        onSubmit: createClass,
+      },
+      title: 'Create class',
+    });
+  }
+
+  handleEdit(classItem) {
+    const { updateClass, showModal } = this.props;
+    showModal({
+      Node: FormModal,
+      options: {
+        Form: ClassForm,
+        onSubmit: (data) => updateClass(classItem.id, data),
+        initialValues: classItem,
+      },
+      title: 'Update class',
     });
   }
 
@@ -66,7 +90,7 @@ class Classes extends Component<ClassProps, {}> {
         <Loader isShow={isLoading}>
           <Content>
             {classes.map( classItem => (
-              <ClassItem key={classItem.id}>
+              <ClassItem key={classItem.id} onClick={() => this.handleEdit(classItem)}>
                 {classItem.name}
               </ClassItem>
             ))}
@@ -86,6 +110,8 @@ export default connect(({ classes }: any): StateProps => {
   {
     loadClasses: actions.loadClasses,
     createClass: actions.createClass,
+    updateClass: actions.updateClass,
+    showModal: modalActions.showModal,
   },
 )(Classes);
 

@@ -3,9 +3,12 @@ import { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import * as autoBind from "react-autobind";
-import * as actions from "./actions";
 import Loader from "components/Loader";
 import { ClassType } from 'containers/Classes';
+import FormModal from 'components/modals/FormModal';
+import ClassCollectionForm from 'components/ClassCollectionForm';
+import * as modalActions from "containers/Modal/actions";
+import * as actions from "./actions";
 
 interface ClassCollectionType {
   id: number,
@@ -20,7 +23,9 @@ interface StateProps {
 
 interface DispatchProps {
   loadClassCollections: () => void,
-  createClassCollection: (Object) => void,
+  createClassCollection: (data: object) => void,
+  updateClassCollection: (id: number|string, data: object) => void,
+  showModal: (config: object) => void,
 }
 
 type ClassCollectionProps = StateProps & DispatchProps
@@ -44,6 +49,12 @@ const CollectionItem = styled.div`
 
 const Content = styled.div`
   margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Title = styled.h3`
+  cursor: pointer;
 `;
 
 class ClassCollections extends Component<ClassCollectionProps, {}> {
@@ -59,9 +70,27 @@ class ClassCollections extends Component<ClassCollectionProps, {}> {
   }
 
   handleCreate() {
-    const { createClassCollection } = this.props;
-    createClassCollection({
-      name: 'test',
+    const { createClassCollection, showModal } = this.props;
+    showModal({
+      Node: FormModal,
+      options: {
+        Form: ClassCollectionForm,
+        onSubmit: createClassCollection,
+      },
+      title: 'Create class collection',
+    });
+  }
+
+  handleEdit(classCollection) {
+    const { updateClassCollection, showModal } = this.props;
+    showModal({
+      Node: FormModal,
+      options: {
+        Form: ClassCollectionForm,
+        onSubmit: (data) => updateClassCollection(classCollection.id, data),
+        initialValues: classCollection,
+      },
+      title: 'Update class',
     });
   }
 
@@ -75,11 +104,11 @@ class ClassCollections extends Component<ClassCollectionProps, {}> {
           <Content>
             {classCollections.map( collection => (
               <ClassCollection key={collection.id}>
-                <h3>
+                <Title onClick={() => this.handleEdit(collection)}>
                   {collection.name}
-                </h3>
+                </Title>
                 {collection.classes.map(classItem => (
-                  <CollectionItem>
+                  <CollectionItem key={classItem.id}>
                     {classItem.name}
                   </CollectionItem>
                 ))}
@@ -101,6 +130,8 @@ export default connect(({ classCollections }: any): StateProps => {
   {
     loadClassCollections: actions.loadClassCollections,
     createClassCollection: actions.createClassCollection,
+    updateClassCollection: actions.updateClassCollection,
+    showModal: modalActions.showModal,
   },
 )(ClassCollections);
 

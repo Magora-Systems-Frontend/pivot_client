@@ -2,7 +2,6 @@
 build
 node_modules
 stats.json
-package-lock.json
 
 # Any
 .DS_Store

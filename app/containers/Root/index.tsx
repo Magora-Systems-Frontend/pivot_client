@@ -18,6 +18,7 @@ import Login from "../Login/index";
 import Unauthorized from "../Unauthorized/index";
 import { CLIENT_PAGES } from "../../app/constants";
 import { Wrapper } from "./index.styled";
+import Modal from "../Modal/index";
 
 export default class Root extends React.Component<{}, {}> {
   render() {
@@ -35,6 +36,7 @@ export default class Root extends React.Component<{}, {}> {
           />
           <Route path={CLIENT_PAGES.HOME} component={App}/>
         </Switch>
+        <Modal />
       </Wrapper>
     );
   }

@@ -8,6 +8,7 @@ import { reducer as form } from "redux-form";
 import auth from "../helpers/auth/reducer";
 import { classes } from '../containers/Classes/reducer';
 import { classCollections } from '../containers/ClassCollections/reducer';
+import modal from '../containers/Modal/reducer';
 
 import { getPureObject } from "../helpers/handlers";
 
@@ -40,6 +41,7 @@ export default function createReducer() {
     route: routeReducer,
     form,
     auth,
+    modal,
     classes,
     classCollections,
   });

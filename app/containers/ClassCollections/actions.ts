@@ -1,7 +1,6 @@
 import { actionTypes } from "./constants";
 import handleError from "helpers/api/handleError";
 import * as api from "helpers/api/classes";
-import { classCollections } from './reducer';
 
 export function loadClassCollections() {
   return async (dispatch) => {
@@ -37,8 +36,26 @@ export function createClassCollection(data: Object) {
       payload: {
         items: [
           ...classCollections.items,
-          result
+          result,
         ]
+      },
+    });
+  }
+}
+
+export function updateClassCollection(id: number|string, data: Object) {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: actionTypes.load,
+    });
+    const result = await api.updateClassCollection(id, data);
+    const { classCollections } = getState();
+    return dispatch({
+      type: actionTypes.loadSuccess,
+      payload: {
+        items: [
+          ...classCollections.items.map(classCollection => id === classCollection.id ? result : classCollection),
+        ],
       },
     });
   }
