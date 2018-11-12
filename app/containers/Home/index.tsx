@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Component } from "react";
-import Classes from '../Classes';
-import ClassCollections from '../ClassCollections';
+import Classes from "../Classes";
+import ClassCollections from "../ClassCollections";
 
 export default class Home extends Component<{}, {}> {
 

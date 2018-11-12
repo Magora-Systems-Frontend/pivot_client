@@ -6,8 +6,8 @@ import * as autoBind from "react-autobind";
 import Loader from "components/Loader";
 import * as modalActions from "containers/Modal/actions";
 import * as actions from "./actions";
-import FormModal from 'components/modals/FormModal';
-import ClassForm from 'components/ClassForm';
+import FormModal from "components/modals/FormModal";
+import ClassForm from "components/ClassForm";
 
 export interface ClassType {
   id: number,

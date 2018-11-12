@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import * as autoBind from "react-autobind";
 import Loader from "components/Loader";
-import { ClassType } from 'containers/Classes';
-import FormModal from 'components/modals/FormModal';
-import ClassCollectionForm from 'components/ClassCollectionForm';
+import { ClassType } from "containers/Classes";
+import FormModal from "components/modals/FormModal";
+import ClassCollectionForm from "components/ClassCollectionForm";
 import * as modalActions from "containers/Modal/actions";
 import * as actions from "./actions";
 

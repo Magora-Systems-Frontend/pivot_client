@@ -1,6 +1,6 @@
-import { actionTypes } from './constants';
-import handleError from 'helpers/api/handleError';
-import * as api from 'helpers/api/classes';
+import { actionTypes } from "./constants";
+import handleError from "helpers/api/handleError";
+import * as api from "helpers/api/classes";
 
 export function loadClasses() {
   return async (dispatch) => {

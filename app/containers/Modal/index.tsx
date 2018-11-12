@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { connect, DispatchProp } from 'react-redux';
-import { Modal } from 'react-bootstrap';
-import * as modalActions from './actions';
+import * as React from "react";
+import { connect } from "react-redux";
+import { Modal } from "react-bootstrap";
+import * as modalActions from "./actions";
 
 interface ModalProps {
   title?: string,
