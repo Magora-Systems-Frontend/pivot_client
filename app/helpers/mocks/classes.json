@@ -5,12 +5,20 @@
       {
         "id": 1,
         "name": "class 1",
-        "date": 1542446399
+        "date": 1542446399,
+        "collectionId": 1
       },
       {
         "id": 2,
         "name": "class 2",
-        "date": 1542100799
+        "date": 1542100799,
+        "collectionId": null
+      },
+      {
+        "id": 3,
+        "name": "class 3",
+        "date": 1542100799,
+        "collectionId": 1
       }
     ]
   }

@@ -78,9 +78,10 @@ export function moveClass(id: number|string, newCollectionId: number|string, old
       dispatch({
         type: actionTypes.loadSuccess,
         payload: {
-          items: [
-            ...classes.items.filter(item => id !== item.id),
-          ],
+          items: classes.items.map(item => id !== item.id ? item : {
+            ...item,
+            collectionId: newCollectionId,
+          }),
         },
       }),
       dispatch({
@@ -91,13 +92,13 @@ export function moveClass(id: number|string, newCollectionId: number|string, old
               if (collection.id === oldCollectionId) {
                 return {
                   ...collection,
-                  classes: collection.classes.filter(item => item.id !== classItem.id)
+                  classes: collection.classes.filter(classId => classId !== id)
                 }
               }
               if (collection.id === newCollectionId) {
                 return {
                   ...collection,
-                  classes: [...collection.classes, classItem],
+                  classes: [...collection.classes, id],
                 }
               }
               return collection;

@@ -17,7 +17,6 @@ interface OwnProps {
   classItem: ClassType,
   classCollections: ClassCollectionType[],
   selectedCollectionId?: number|string,
-  disableEdit?: boolean,
 }
 
 interface DispatchProps {
@@ -44,6 +43,13 @@ const Wrapper = styled.div`
 const Content = styled.div`
   line-height: 30px;
   font-size: 14px;
+`;
+
+const EditButton = styled.div.attrs({
+  className: 'fa fa-edit',
+})`
+  margin-left: 10px;
+  cursor: pointer;
 `;
 
 class ClassItem extends Component<ClassProps, {}> {
@@ -80,11 +86,14 @@ class ClassItem extends Component<ClassProps, {}> {
   }
 
   render() {
-    const { classItem, disableEdit } = this.props;
+    const { classItem } = this.props;
     return (
       <Wrapper key={classItem.id}>
-        <Content onClick={() => !disableEdit ? this.handleEdit(classItem) : null}>
-          <div>{classItem.name}</div>
+        <Content>
+          <div>
+            <span>{classItem.name}</span>
+            <EditButton onClick={() => this.handleEdit(classItem)} />
+          </div>
           <div>{classItem.date ? moment.unix(classItem.date).format("DD MMM YYYY") : null}</div>
         </Content>
         <button type="button" onClick={() => this.handleMove(classItem)} className="btn btn-sm btn-default">move</button>

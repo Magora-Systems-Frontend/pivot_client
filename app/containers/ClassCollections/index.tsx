@@ -3,7 +3,6 @@ import { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import * as autoBind from "react-autobind";
-import Loader from "components/Loader";
 import { ClassType } from "containers/Classes";
 import FormModal from "components/modals/FormModal";
 import ClassCollectionForm from "components/ClassCollectionForm";
@@ -14,17 +13,17 @@ import ClassItem from "components/ClassItem";
 export interface ClassCollectionType {
   id: number,
   name: string,
-  classes: ClassType[],
+  classes: number[],
 }
 
 interface StateProps {
+  classes: ClassType[],
   classCollections: ClassCollectionType[],
-  isLoading: boolean,
 }
 
 interface DispatchProps {
   createClassCollection: (data: object) => void,
-  updateClassCollection: (id: number|string, data: object) => void,
+  updateClassCollection: (id: number, data: object) => void,
   showModal: (config: object) => void,
 }
 
@@ -81,34 +80,33 @@ class ClassCollections extends Component<StateProps & DispatchProps, {}> {
   }
 
   render() {
-    const { classCollections, isLoading } = this.props;
+    const { classCollections, classes } = this.props;
     return (
       <div>
         <h3>Collections</h3>
-        <button className="btn btn-default" type="button" disabled={isLoading} onClick={this.handleCreate}>New Collection</button>
-        <Loader isShow={isLoading}>
-          <Content>
-            {classCollections.map( collection => (
-              <ClassCollection key={collection.id}>
-                <Title onClick={() => this.handleEdit(collection)}>
-                  {collection.name}
-                </Title>
-                {collection.classes.map(classItem => (
-                  <ClassItem classItem={classItem} disableEdit key={classItem.id} classCollections={classCollections} selectedCollectionId={collection.id} />
-                ))}
-              </ClassCollection>
-            ))}
-          </Content>
-        </Loader>
+        <button className="btn btn-default" type="button" onClick={this.handleCreate}>New Collection</button>
+        <Content>
+          {classCollections.map(collection => (
+            <ClassCollection key={collection.id}>
+              <Title onClick={() => this.handleEdit(collection)}>
+                {collection.name}
+              </Title>
+              {collection.classes.map(classId => (
+                <ClassItem classItem={classes.find(classItem => classItem.id === classId)} key={classId}
+                           classCollections={classCollections} selectedCollectionId={collection.id} />
+              ))}
+            </ClassCollection>
+          ))}
+        </Content>
       </div>
     );
   }
 }
 
-export default connect(({ classCollections }: any): StateProps => {
+export default connect(({ classes, classCollections }: any): StateProps => {
     return {
+      classes: classes.items,
       classCollections: classCollections.items,
-      isLoading: classCollections.isLoading,
     };
   },
   {

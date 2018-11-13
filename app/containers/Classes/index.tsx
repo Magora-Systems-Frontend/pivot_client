@@ -3,7 +3,6 @@ import { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import * as autoBind from "react-autobind";
-import Loader from "components/Loader";
 import * as modalActions from "containers/Modal/actions";
 import * as actions from "./actions";
 import FormModal from "components/modals/FormModal";
@@ -16,12 +15,12 @@ export interface ClassType {
   id: number,
   name: string,
   date: number,
+  collectionId: number
 }
 
 interface StateProps {
   classes: ClassType[],
   classCollections: ClassCollectionType[],
-  isLoading: boolean,
 }
 
 interface DispatchProps {
@@ -55,18 +54,16 @@ class Classes extends Component<ClassProps, {}> {
   }
 
   render() {
-    const { classes, isLoading, classCollections } = this.props;
+    const { classes, classCollections } = this.props;
     return (
       <div>
         <h3>Classes</h3>
-        <button className="btn btn-default" type="button" disabled={isLoading} onClick={this.handleCreate}>New Class</button>
-        <Loader isShow={isLoading}>
-          <Content>
-            {classes.map( classItem => (
-              <ClassItem classItem={classItem} key={classItem.id} classCollections={classCollections} />
-            ))}
-          </Content>
-        </Loader>
+        <button className="btn btn-default" type="button" onClick={this.handleCreate}>New Class</button>
+        <Content>
+          {classes.map( classItem => (
+            <ClassItem classItem={classItem} key={classItem.id} classCollections={classCollections} />
+          ))}
+        </Content>
       </div>
     );
   }
@@ -74,9 +71,8 @@ class Classes extends Component<ClassProps, {}> {
 
 export default connect(({ classes, classCollections }: any): StateProps => {
     return {
-      classes: classes.items,
+      classes: classes.items.filter(cl => !cl.collectionId),
       classCollections: classCollections.items,
-      isLoading: classes.isLoading && classCollections.isLoading,
     };
   },
   {
