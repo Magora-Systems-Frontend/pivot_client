@@ -15,6 +15,7 @@ import ClassItem from "components/ClassItem";
 export interface ClassType {
   id: number,
   name: string,
+  date: number,
 }
 
 interface StateProps {

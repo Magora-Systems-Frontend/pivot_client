@@ -1,7 +1,7 @@
 import * as React from "react";
 import { PureComponent } from "react";
 import { Field, reduxForm, InjectedFormProps } from "redux-form";
-import { InputField } from "../form";
+import { InputField, DateField } from "../form";
 import * as validations from "../../helpers/forms/validations";
 import cns from "classnames";
 
@@ -27,6 +27,11 @@ export default class ClassForm extends PureComponent<InjectedFormProps<{}>, {}> 
           type="text"
           placeholder="Please enter name..."
           component={InputField}
+          validate={[validations.required]}
+        />
+        <Field
+          name="date"
+          component={DateField}
           validate={[validations.required]}
         />
         {error && <div className="help-block">{error}</div>}

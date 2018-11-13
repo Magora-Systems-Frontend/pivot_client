@@ -4,11 +4,13 @@
     "items": [
       {
         "id": 1,
-        "name": "class 1"
+        "name": "class 1",
+        "date": 1542446399
       },
       {
         "id": 2,
-        "name": "class 2"
+        "name": "class 2",
+        "date": 1542100799
       }
     ]
   }

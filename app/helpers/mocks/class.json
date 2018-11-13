@@ -2,6 +2,7 @@
   "code": "success",
   "data": {
     "id": 99,
-    "name": "class 99"
+    "name": "class 99",
+    "date": 1542446399
   }
 }

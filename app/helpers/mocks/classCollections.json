@@ -15,7 +15,8 @@
         "classes": [
           {
             "id": 3,
-            "name": "class 3"
+            "name": "class 3",
+            "date": 1542100799
           }
         ]
       }

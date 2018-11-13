@@ -14,6 +14,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import 'sanitize.css/sanitize.css';
+import 'react-datepicker/dist/react-datepicker.min.css';
 
 // Import root app
 import Root from 'containers/Root/index';

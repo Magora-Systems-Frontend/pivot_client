@@ -3,14 +3,15 @@ import { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import * as autoBind from "react-autobind";
+import * as moment from "moment";
 import * as modalActions from "containers/Modal/actions";
 import * as actions from "containers/Classes/actions";
 import FormModal from "components/modals/FormModal";
 import ClassForm from "components/ClassForm";
 import MoveClassForm from "components/MoveClassForm";
 
-import { ClassCollectionType } from 'containers/ClassCollections';
-import { ClassType } from 'containers/Classes';
+import { ClassCollectionType } from "containers/ClassCollections";
+import { ClassType } from "containers/Classes";
 
 interface OwnProps {
   classItem: ClassType,
@@ -38,6 +39,11 @@ const Wrapper = styled.div`
   margin-right: 10px;
   margin-bottom: 10px;
   padding: 5px 10px;
+`;
+
+const Content = styled.div`
+  line-height: 30px;
+  font-size: 14px;
 `;
 
 class ClassItem extends Component<ClassProps, {}> {
@@ -77,7 +83,10 @@ class ClassItem extends Component<ClassProps, {}> {
     const { classItem, disableEdit } = this.props;
     return (
       <Wrapper key={classItem.id}>
-        <div onClick={() => !disableEdit ? this.handleEdit(classItem) : null}>{classItem.name}</div>
+        <Content onClick={() => !disableEdit ? this.handleEdit(classItem) : null}>
+          <div>{classItem.name}</div>
+          <div>{classItem.date ? moment.unix(classItem.date).format("DD MMM YYYY") : null}</div>
+        </Content>
         <button type="button" onClick={() => this.handleMove(classItem)} className="btn btn-sm btn-default">move</button>
       </Wrapper>
     );
