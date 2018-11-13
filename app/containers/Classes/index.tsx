@@ -9,6 +9,9 @@ import * as actions from "./actions";
 import FormModal from "components/modals/FormModal";
 import ClassForm from "components/ClassForm";
 
+import { ClassCollectionType } from "containers/ClassCollections";
+import ClassItem from "components/ClassItem";
+
 export interface ClassType {
   id: number,
   name: string,
@@ -16,29 +19,16 @@ export interface ClassType {
 
 interface StateProps {
   classes: ClassType[],
+  classCollections: ClassCollectionType[],
   isLoading: boolean,
 }
 
 interface DispatchProps {
-  loadClasses: () => void,
   createClass: (Object) => void,
-  updateClass: (id: number|string, data: Object) => void,
   showModal: (Object) => void,
 }
 
 type ClassProps = StateProps & DispatchProps
-
-const ClassItem = styled.div`
-  display: block;
-  min-width: 100px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  border: 1px solid;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  cursor: pointer;
-`;
 
 const Content = styled.div`
   margin: 20px 0;
@@ -49,11 +39,6 @@ class Classes extends Component<ClassProps, {}> {
   constructor(props) {
     super(props);
     autoBind(this);
-  }
-
-  componentDidMount() {
-    const { loadClasses } = this.props;
-    loadClasses();
   }
 
   handleCreate() {
@@ -68,21 +53,8 @@ class Classes extends Component<ClassProps, {}> {
     });
   }
 
-  handleEdit(classItem) {
-    const { updateClass, showModal } = this.props;
-    showModal({
-      Node: FormModal,
-      options: {
-        Form: ClassForm,
-        onSubmit: (data) => updateClass(classItem.id, data),
-        initialValues: classItem,
-      },
-      title: 'Update class',
-    });
-  }
-
   render() {
-    const { classes, isLoading } = this.props;
+    const { classes, isLoading, classCollections } = this.props;
     return (
       <div>
         <h3>Classes</h3>
@@ -90,9 +62,7 @@ class Classes extends Component<ClassProps, {}> {
         <Loader isShow={isLoading}>
           <Content>
             {classes.map( classItem => (
-              <ClassItem key={classItem.id} onClick={() => this.handleEdit(classItem)}>
-                {classItem.name}
-              </ClassItem>
+              <ClassItem classItem={classItem} key={classItem.id} classCollections={classCollections} />
             ))}
           </Content>
         </Loader>
@@ -101,16 +71,15 @@ class Classes extends Component<ClassProps, {}> {
   }
 }
 
-export default connect(({ classes }: any): StateProps => {
+export default connect(({ classes, classCollections }: any): StateProps => {
     return {
       classes: classes.items,
-      isLoading: classes.isLoading,
+      classCollections: classCollections.items,
+      isLoading: classes.isLoading && classCollections.isLoading,
     };
   },
   {
-    loadClasses: actions.loadClasses,
     createClass: actions.createClass,
-    updateClass: actions.updateClass,
     showModal: modalActions.showModal,
   },
 )(Classes);

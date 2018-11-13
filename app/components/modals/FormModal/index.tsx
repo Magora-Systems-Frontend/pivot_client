@@ -22,7 +22,7 @@ export default class FormModal extends React.Component<Props, {}> {
   };
 
   render() {
-    const { hide, options: { Form, initialValues }  } = this.props;
+    const { hide, options: { Form, onSubmit, initialValues, ...tailProps } } = this.props;
     return (
       <div className="box box-primary">
         <div className="box-body">
@@ -30,6 +30,7 @@ export default class FormModal extends React.Component<Props, {}> {
             onSubmit={this.handleSubmit}
             hide={hide}
             initialValues={initialValues}
+            {...tailProps}
           />
         </div>
       </div>

@@ -9,8 +9,9 @@ import FormModal from "components/modals/FormModal";
 import ClassCollectionForm from "components/ClassCollectionForm";
 import * as modalActions from "containers/Modal/actions";
 import * as actions from "./actions";
+import ClassItem from "components/ClassItem";
 
-interface ClassCollectionType {
+export interface ClassCollectionType {
   id: number,
   name: string,
   classes: ClassType[],
@@ -22,29 +23,19 @@ interface StateProps {
 }
 
 interface DispatchProps {
-  loadClassCollections: () => void,
   createClassCollection: (data: object) => void,
   updateClassCollection: (id: number|string, data: object) => void,
   showModal: (config: object) => void,
 }
 
-type ClassCollectionProps = StateProps & DispatchProps
-
 const ClassCollection = styled.div`
   display: inline-block;
-  width: 200px;
+  width: 250px;
   text-align: center;
   border: 1px solid;
   margin-right: 10px;
   margin-bottom: 10px;
   padding: 20px;
-`;
-
-const CollectionItem = styled.div`
-  height: 30px;
-  border: 1px solid;
-  width: 100%;
-  margin: 10px 0;
 `;
 
 const Content = styled.div`
@@ -57,16 +48,11 @@ const Title = styled.h3`
   cursor: pointer;
 `;
 
-class ClassCollections extends Component<ClassCollectionProps, {}> {
+class ClassCollections extends Component<StateProps & DispatchProps, {}> {
 
   constructor(props) {
     super(props);
     autoBind(this);
-  }
-
-  componentDidMount() {
-    const { loadClassCollections } = this.props;
-    loadClassCollections();
   }
 
   handleCreate() {
@@ -108,9 +94,7 @@ class ClassCollections extends Component<ClassCollectionProps, {}> {
                   {collection.name}
                 </Title>
                 {collection.classes.map(classItem => (
-                  <CollectionItem key={classItem.id}>
-                    {classItem.name}
-                  </CollectionItem>
+                  <ClassItem classItem={classItem} disableEdit key={classItem.id} classCollections={classCollections} selectedCollectionId={collection.id} />
                 ))}
               </ClassCollection>
             ))}
@@ -128,7 +112,6 @@ export default connect(({ classCollections }: any): StateProps => {
     };
   },
   {
-    loadClassCollections: actions.loadClassCollections,
     createClassCollection: actions.createClassCollection,
     updateClassCollection: actions.updateClassCollection,
     showModal: modalActions.showModal,

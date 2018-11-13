@@ -1,4 +1,5 @@
 import { actionTypes } from "./constants";
+import { actionTypes as classCollectionsActionTypes } from '../ClassCollections/constants';
 import handleError from "helpers/api/handleError";
 import * as api from "helpers/api/classes";
 
@@ -58,5 +59,52 @@ export function updateClass(id: number|string, data: Object) {
         ],
       },
     });
+  }
+}
+
+export function moveClass(id: number|string, newCollectionId: number|string, oldCollectionId?: number|string) {
+  return async (dispatch, getState) => {
+    dispatch({
+      type: actionTypes.load,
+    });
+    await api.moveClass(id, newCollectionId);
+    const { classes, classCollections } = getState();
+    const allClasses = [
+      ...classes.items,
+      ...classCollections.items.reduce((res, cur) => [...res, ...cur.classes], []),
+    ];
+    const classItem = allClasses.find(item => item.id === id);
+    return Promise.all([
+      dispatch({
+        type: actionTypes.loadSuccess,
+        payload: {
+          items: [
+            ...classes.items.filter(item => id !== item.id),
+          ],
+        },
+      }),
+      dispatch({
+        type: classCollectionsActionTypes.loadSuccess,
+        payload: {
+          items: [
+            ...classCollections.items.map(collection => {
+              if (collection.id === oldCollectionId) {
+                return {
+                  ...collection,
+                  classes: collection.classes.filter(item => item.id !== classItem.id)
+                }
+              }
+              if (collection.id === newCollectionId) {
+                return {
+                  ...collection,
+                  classes: [...collection.classes, classItem],
+                }
+              }
+              return collection;
+            }),
+          ],
+        },
+      }),
+    ])
   }
 }

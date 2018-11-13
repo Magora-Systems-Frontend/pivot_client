@@ -2,8 +2,22 @@ import * as React from "react";
 import { Component } from "react";
 import Classes from "../Classes";
 import ClassCollections from "../ClassCollections";
+import * as actions from '../Classes/actions';
+import * as collectionsActions from '../ClassCollections/actions';
+import { connect } from 'react-redux';
 
-export default class Home extends Component<{}, {}> {
+interface DispatchProps {
+  loadClasses: () => void,
+  loadClassCollections: () => void,
+}
+
+class Home extends Component<DispatchProps, {}> {
+
+  componentDidMount() {
+    const { loadClasses, loadClassCollections } = this.props;
+    loadClasses();
+    loadClassCollections();
+  }
 
   render() {
     return (
@@ -21,4 +35,8 @@ export default class Home extends Component<{}, {}> {
     );
   }
 }
-
+export default connect(null,{
+    loadClasses: actions.loadClasses,
+    loadClassCollections: collectionsActions.loadClassCollections,
+  },
+)(Home);

@@ -10,6 +10,7 @@ mock.onPut(/\/classes\/\d+/).reply((config) => {
   const response = require('../mocks/class.json');
   return [200, {...response, data: {...response.data, ...JSON.parse(config.data)}}];
 });
+mock.onPut(/\/classes\/\d+\/move/).reply(200, require('../mocks/success.json'));
 
 mock.onGet('/classCollections').reply(200, require('../mocks/classCollections.json'));
 mock.onPost('/classCollections').reply((config) => {
@@ -31,6 +32,10 @@ export function createClass(data) {
 
 export function updateClass(id, data) {
   return axios.put(`/classes/${id}`, data);
+}
+
+export function moveClass(id, collectionId) {
+  return axios.put(`/classes/${id}/move`, { collectionId });
 }
 
 export function getClassCollections() {
