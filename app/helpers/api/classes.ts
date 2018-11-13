@@ -1,4 +1,4 @@
-import axios from './axiosClient';
+import { mockedAxios as axios} from './axiosClient';
 const MockAdapter = require('axios-mock-adapter');
 const mock = new MockAdapter(axios, { delayResponse: 500 }); // imitate request
 mock.onGet('/classes').reply(200, require('../mocks/classes.json'));
